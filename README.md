@@ -1,4 +1,4 @@
-# CPE-303-OOP
+# CPE-303-OOP C++ Application
 
 A c++ Console application to simulate a simple Hospital Management System.
 
