@@ -4,26 +4,28 @@
 
 using namespace std;
 
+// Declaring the important functions ath the top
+void LandingPage();
+
 // Pages for screens
 void loopApp(){
-     // bool done = false;
+     bool done = false;
 
-     // while(done == false){
-     //      cout << "Do you want to perform another task? Yes or no?" << endl;
-     //      string option; cin >> option;
+     while(done == false){
+          cout << "Do you want to perform another task? Yes or no?" << endl;
+          string option; cin >> option;
 
-     //      if(option == "yes"){
-     //           done = true;
-     //           // system("CLS");
-
+          if(option == "yes"){
+               done = true;
+               // system("CLS");
+           LandingPage();
              
-     //      }else if(option == "no"){
-     //           done = true;
-     //      }else{
-     //           cout << "Enter a valid input";
-     //      }
-     // }
-     // system("CLS");
+          }else if(option == "no"){
+               done = true;
+          }else{
+               cout << "Enter a valid input";
+          }
+     }
      system("PAUSE");
 
 }
@@ -252,7 +254,18 @@ void welcome(){
 int main(){
      // system("COLOR 3F");
          
-     welcome();
+     // welcome();
+int number = 15;
+     for (int i = 1; i <= number; i++) {
+        for (int j = 1; j <= number; j++) {
+            if (i == 1 || i == number || j == 1 || j == number){
+                printf("* ");
+            }else{
+                printf("  ");
+            }
+        }
+          cout << "\n";
+        }
 
      return 0;
 }
