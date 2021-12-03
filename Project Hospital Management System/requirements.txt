@@ -1,0 +1,6 @@
+Hospital Management System
+Developed by :
+Hanif Adedotun 191203007
+Akinbami Abdullahi 191203008
+
+
