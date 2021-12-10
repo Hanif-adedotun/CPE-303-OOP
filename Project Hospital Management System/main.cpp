@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
  #include <stdlib.h>
-
+ #include <iomanip> 
+ 
 using namespace std;
 
 // Declaring the important functions ath the top
@@ -56,9 +57,11 @@ class Patient{
           AddPatient << PhoneNumber << endl; 
           AddPatient << DateOfBirth << endl;
 
-           cout << "Patient added successfully" << endl;
+          cout << "Patient added successfully" << endl;
 
           AddPatient.close(); 
+
+          
           loopApp();
      }
 };
@@ -139,6 +142,7 @@ class Doctor{
                          getline(doc, sp);
         
                          cout << "Patient "<< name << " assigned to " << n << " in "<< rm << endl;
+                         loopApp();
                     }else{
                          cout << "Doctor not found" << endl;
                     }
@@ -146,7 +150,9 @@ class Doctor{
                     loopApp();
                }
      
-          }
+          }else{
+                    loopApp();
+               }
      };
 };
 
@@ -162,37 +168,50 @@ class Diagnosis{
                     string line;
                     while(getline(pfile, line)){
                          cout << line << endl;
-                    }
+                    }                   
                }else{
                     cout << "Patient is not regstered on the platform" << endl; 
+                    history();
                }
 
-               loopApp();
+               cout << "Do you want to add diagnosis for the patient?"<< endl;
+               cout << "Enter (1) for Yes" << endl;
+               int p; cin >> p;
+               if(p == 1){
+                    addDiagnosis(id);
+               }else{
+                    loopApp();
+               }
+               
                
           };
-          void addDiagnosis(){
-               cout << "Enter the patient's first name" << endl;
-               string name; cin >> name;
+          void addDiagnosis(string name){
+               // cout << "Enter the patient's first name" << endl;
+               // string name; cin >> name;
 
-               fstream pfile("patients/"+ name + ".txt");
+               ofstream pfile("patients/"+ name + ".txt", ios::app);
                if(pfile.is_open()){
                     string diagnosis;
                     
-                    cout << "Add diagnosis for " << name << endl;
+                    cout << "Type in the diagnosis for " << name << ":" << endl;
                     cin >> diagnosis;
+                   
+                    pfile << "Diagnosis" << endl;
                     pfile << diagnosis << endl;
+
 
                     cout << "Successfully added the diagnosis for " << name << endl;
                     pfile.close();                             
                }else{
-                    cout << "Sorry, Patient is not regstered on the platform" << endl;
-                    addDiagnosis();
+                    cout << "Sorry, Patient is not regstered on the platform, please register the patient" << endl;
+                   
                }
+               loopApp();
                
           };
 };
 
-     // The home screen that display all the options our software can peroform
+// The home screen that display all the options our software can peroform
 void aboutHospital(){
     fstream f("about.txt", ios::in);
      string line;
@@ -210,15 +229,17 @@ void aboutHospital(){
 
 void LandingPage(){
      int option;
-          
-     cout << "Enter the option you want:" << endl;
-     cout << "1. Add a new patient" << endl;
-     cout << "2. View Patient Record" << endl;
-     cout << "3. View available doctors" << endl;
-     cout << "4. About Hospital" << endl;
-     cout << "5. Exit" << endl;
+     system("CLS");
+     cout<<setfill('-')<<setw(150)<<"-"<<endl;
+     cout <<setfill(' ') << setw(80) <<" HOSPITAL MANAGEMENT SYSTEM" << endl;
+     cout << left <<"Enter the option you want:" << endl;
+     cout << left << "1. Add a new patient" << endl;
+     cout << left << "2. View Patient Record" << endl;
+     cout << left << "3. View available doctors" << endl;
+     cout << left << "4. About Hospital" << endl;
+     cout << left << "5. Exit" << endl;
+     cout<<setfill('-')<<setw(150)<<"-"<<endl;
     
-
      cin >> option;
 
      switch (option) {
@@ -250,7 +271,7 @@ void LandingPage(){
           cout << "Are you sure you want to exit app Yes(1) No(2)?" << endl;
           int op; cin >> op;
           if(op == 1){
-               cout << "Thank you for using our software" << endl;
+               cout << setw(80) <<"Thank you for using our software!" << endl;
                exit(0);
           }else{
                loopApp();
@@ -269,37 +290,27 @@ void LandingPage(){
 void welcome(){
      string pass;
      bool login = false;
-     cout << "Welcome to Hospital Management System" << endl;
+     cout << setfill('-')<<setw(110)<<"-"<<endl;
+     cout << setfill(' ') << setw(80)<< "WELCOME TO  HOSPITAL MANAGEMENT SYSTEM" << endl;
 
      while (login == false){
-          cout << "Please enter the password: " << endl;
+          cout <<left << "Please enter the password: " << endl;
           cin >> pass;
           if (pass == "1407"){
                login = true;
-               cout << "Access Granted" << endl;
+               cout << left << "Access Granted" << endl;
                LandingPage();
           }
           else{
-               cout << "Access Denied" << endl;
+               cout <<left << "Access Denied" << endl;
           }
      }
+      cout << setfill('-')<<setw(110)<<"-"<<endl;
 }
 
 int main(){
      // system("COLOR 3F");
          
      welcome();
-// int number = 15;
-//      for (int i = 1; i <= number; i++) {
-//         for (int j = 1; j <= number; j++) {
-//             if (i == 1 || i == number || j == 1 || j == number){
-//                 printf("* ");
-//             }else{
-//                 printf("  ");
-//             }
-//         }
-//           cout << "\n";
-//         }
-
      return 0;
 }
