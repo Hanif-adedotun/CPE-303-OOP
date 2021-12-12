@@ -8,4 +8,11 @@ The project was built by :arrow_down_small:
 
 :arrow_forward: Abdullahi Magaji Sani :e-mail: [aesem7@gmail.com](mailto:aesem7@gmail.com)
 
-It was developed for CPE-303 an Object Oriented Programming Class in c++.
+It was developed for CPE-303 a 300 level Object Oriented Programming Class in c++.
+
+## Run using g++ compiler {#run}
+```
+g++ -o hms main.cpp
+./hms
+```
+
