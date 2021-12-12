@@ -230,15 +230,15 @@ void aboutHospital(){
 void LandingPage(){
      int option;
      system("CLS");
-     cout<<setfill('-')<<setw(150)<<"-"<<endl;
-     cout <<setfill(' ') << setw(80) <<" HOSPITAL MANAGEMENT SYSTEM" << endl;
+     cout<<setfill('-')<<setw(110)<<"-"<<endl;
+     cout <<setfill(' ') << setw(150) <<" HOSPITAL MANAGEMENT SYSTEM" << endl;
      cout << left <<"Enter the option you want:" << endl;
      cout << left << "1. Add a new patient" << endl;
      cout << left << "2. View Patient Record" << endl;
      cout << left << "3. View available doctors" << endl;
      cout << left << "4. About Hospital" << endl;
      cout << left << "5. Exit" << endl;
-     cout<<setfill('-')<<setw(150)<<"-"<<endl;
+     cout<<setfill('-')<<setw(110)<<"-"<<endl;
     
      cin >> option;
 
