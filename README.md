@@ -10,9 +10,14 @@ The project was built by :arrow_down_small:
 
 It was developed for CPE-303 a 300 level Object Oriented Programming Class in c++.
 
-## Run using g++ compiler {#run}
+## Run using g++ compiler
+
+Compile the code using g++ compiler:
 ```
 g++ -o hms main.cpp
+```
+Run the compiled code locally:
+```
 ./hms
 ```
 
